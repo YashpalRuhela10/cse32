@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+          text-align: center;
+      }
+      h1 {
+          margin-top: 20px;
+          color: blue;
+      }
+      h2 {
+          color: #333;
+          margin-bottom: 20px;
+      }
+      .gallery-container {
+          max-width: 1200px;
+          margin: auto;
+          padding: 20px;
+          border: 2px solid #ccc;
+          border-radius: 10px;
+          background-color: white;
+      }
+      .gallery {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+      .gallery div {
+          margin: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          overflow: hidden;
+          background-color: #fafafa;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .gallery img {
+          width: 300px;
+          height: 200px;
+          border-radius: 5px 5px 0 0;
+          transition: transform 0.2s;
+          cursor: pointer;
+      }
+      .gallery img:hover {
+          transform: scale(1.05);
+      }
+      .line {
+          width: 100%;
+          height: 2px;
+          margin: 5px auto;
+      }
+      p {
+          margin: 10px 0;
+      }
+      .line1 { background-color: violet; }
+      .line2 { background-color: red; }
+      .line3 { background-color: yellow; }
+      .line4 { background-color: grey; }
+      .line5 { background-color: pink; }
+      .modal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgba(0, 0, 0, 0.8);
+      }
+      .modal-content {
+          margin: 15% auto;
+          display: block;
+          max-width: 80%;
+      }
+      .close {
+          position: absolute;
+          top: 20px;
+          right: 30px;
+          color: white;
+          font-size: 40px;
+          font-weight: bold;
+          cursor: pointer;
+      }
+      .caption {
+          color: white;
+          text-align: center;
+          margin-top: 10px;
+      }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to the Gallery</h1>
+  <h2>Discover Your Cherished Memories</h2>
+  <div class="gallery-container">
+      <div class="gallery">
+          <div>
+              <img src="first-birthday-celebration.jpg" alt="Image 1" onclick="openModal(this.src)">
+              <div class="line line1"></div>
+              <p>This day 1 year ago</p>
+          </div>
+          <div>
+              <img src="photo-1712388430474-ace0c16051e2.jpg" alt="Image 2" onclick="openModal(this.src)">
+              <div class="line line2"></div>
+              <p>Memories from Manali</p>
+          </div>
+          <div>
+              <img src="cartoon-happy-family-on-white-background-vector.jpg" alt="Image 3" onclick="openModal(this.src)">
+              <div class="line line3"></div>
+              <p>Family time</p>
+          </div>
+          <div>
+              <img src="delicious-indian-food-tray_23-2148723505.avif" alt="Image 4" onclick="openModal(this.src)">
+              <div class="line line4"></div>
+              <p>Food time</p>
+          </div>
+          <div>
+              <img src="1a8089c372e28b3f53ec6d68f8fcff80.jpg" alt="Image 5" onclick="openModal(this.src)">
+              <div class="line line5"></div>
+              <p>Good school days</p>
+          </div>
+      </div>
+  </div>
+
+  <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div class="caption" id="caption"></div>
+  </div>
+
+  <script>
+      function openModal(src) {
+          document.getElementById("myModal").style.display = "block";
+          document.getElementById("img01").src = src;
+          document.getElementById("caption").innerText = src; // Optional: you can set a caption if needed
+      }
+
+      function closeModal() {
+          document.getElementById("myModal").style.display = "none";
+      }
+  </script>
+</body>
+</html>
